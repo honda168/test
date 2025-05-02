@@ -6,9 +6,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Qes1_3 {
+	static Scanner scanner = new Scanner(System.in);
 	public static void main(String[] args) {
-		
-		Scanner scanner = new Scanner(System.in);
 		String name = null;
 		boolean checkflag = true;
 		
@@ -34,7 +33,8 @@ public class Qes1_3 {
 		boolean janken = true;//勝ったらfalseになってループを抜ける
 		int count = 1;//何回で勝てたかカウント
 		while (janken) {
-			int myhand = random.nextInt(3);
+			System.out.println("じゃんけんの手は何にする？\n0→グー、1→チョキ。2→パー\n ");
+			int myhand = myhandselect();
 			int enemy = random.nextInt(3);
 			String[] hand = {"グー","チョキ","パー"}; 
 			System.out.println(name +"の手は「" + hand[myhand] + "」");
@@ -74,6 +74,20 @@ public class Qes1_3 {
 		Pattern p1 = Pattern.compile(regex_AlphaNum); // 正規表現パターンの読み込み
 	    Matcher m1 = p1.matcher(name); // パターンと検査対象文字列の照合
 		return m1.matches();
+		
+	}
+	static int myhandselect() {
+
+		String myhand = "" ;
+		String regex_AlphaNum = "^[0-2]+$";//０～２のみ
+		Pattern p1 = Pattern.compile(regex_AlphaNum); // 正規表現パターンの読み込み
+		Matcher m1 = p1.matcher(myhand); // パターンと検査対象文字列の照合
+		while (!m1.matches()) {
+			myhand = scanner.next();
+			m1 = p1.matcher(myhand); // パターンと検査対象文字列の照合
+			System.out.println("正しく入力してね");
+		}
+		return Integer.parseInt(myhand);
 		
 	}
 }
