@@ -1,7 +1,6 @@
 package crriculum_B;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -19,7 +18,7 @@ public class Qes6 {
             input.add(a);
         }
         //リクエストのあった商品に重複があれば省く処理
-        input = new ArrayList<String>(new HashSet<>(input));
+//        input = new ArrayList<String>(new HashSet<>(input));
         
         /**
          * 入力された商品のリストに対して、
@@ -29,6 +28,7 @@ public class Qes6 {
          * 指定外の商品が入力された場合は、その旨のメッセージを表示する。
          */
         Random rand = new Random();
+        int televisionstock = rand.nextInt(12);
         // 入力された各商品について処理を行う
         for (String product : input) {
             String message = "";
@@ -46,7 +46,7 @@ public class Qes6 {
                 // テレビとディスプレイの場合は個別に在庫数を調整
                 case "テレビ":
                 case "ディスプレイ":
-                	stock = product.equals("テレビ") ? stock : 11-stock;
+                	stock = product.equals("テレビ") ? televisionstock : 11-televisionstock;
                     message = product + "の残り台数は" + stock + "台です";
                     break;
                 // 上記以外の商品は指定外としてメッセージを表示
