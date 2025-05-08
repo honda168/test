@@ -33,4 +33,14 @@ public class Person {
 	public static void printCount() {
 		System.out.println("合計" + Person.count + "人です");
 	}
+	
+	public void buy(Car car) {
+		car.setOwner(this.fullName());
+		System.out.println(this.fullName() + "が購入しました。");
+	}
+	
+	public void buy(Bicycle bicecle) {
+		bicecle.setOwner(this.fullName());
+		System.out.println(this.fullName() + "が購入しました。");
+	}
 }
