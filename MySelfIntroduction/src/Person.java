@@ -26,4 +26,8 @@ public class Person {
 	    System.out.println("BMIは" + getBmi(height, weight) + "です。");
 	    System.out.println();
 	}
+	
+	public static void printCount() {
+		System.out.println("合計" + Person.count + "人です。");
+	}
 }
