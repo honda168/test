@@ -1,33 +1,36 @@
 public class Person {
-	String name;
-	int age;
-	double height;
-	double weight;
-	
-	static int count;
-	
-	public Person(String name, int age, double height, double weight) {
-		this.name = name;
+	public static int count = 0;
+	public String firstName;
+	public String lastName;
+	public int age;
+	public double height, weight;
+
+	Person(String firstName, String lastName, int age, double height, double weight) {
+		Person.count++;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.age = age;
-		this.height = height;//身長
-		this.weight = weight;//体重
-		count++;
+		this.height = height;
+		this.weight = weight;
 	}
-	
+
+	public String fullName() {
+		return this.firstName + this.lastName;
+	}
+
+	public void print() {
+		System.out.println("名前は" + this.fullName() + "です");
+		System.out.println("年は" + this.age + "です");
+		System.out.println();
+	}
+
 	public double getBmi(double height, double weight) {
 		double bmi = weight / (height * 2);
 		bmi = Math.round(bmi * 100.0) / 100.0;
 		return bmi;
-		
 	}
-	public void print() {
-	    System.out.println("名前は" + name + "です。");
-	    System.out.println("年齢は" + age + "です。");
-	    System.out.println("BMIは" + getBmi(height, weight) + "です。");
-	    System.out.println();
-	}
-	
+
 	public static void printCount() {
-		System.out.println("合計" + Person.count + "人です。");
+		System.out.println("合計" + Person.count + "人です");
 	}
 }
