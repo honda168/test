@@ -33,7 +33,7 @@ public class Qes6 {
         for (String product : input) {
             String message = "";
             // 0～11のランダム
-            int stock = rand.nextInt(12);
+			int stock = rand.nextInt(12);
             // 商品名によって処理を分岐
             switch (product) {
                 case "パソコン":

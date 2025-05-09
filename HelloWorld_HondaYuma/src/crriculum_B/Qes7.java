@@ -28,8 +28,8 @@ public class Qes7 {
 		}
 		
 		// 各生徒の平均点を計算して表示
-		double sumscore = 0;
 		for (int i = 0; i < score.length; i++) {
+			double sumscore = 0;
 			for (int j = 0; j < subject.length; j++) {
 				sumscore = sumscore + score[i][j];
 			}
@@ -38,13 +38,13 @@ public class Qes7 {
 		System.out.println();
 		
 		// 各科目ごとの平均点を計算して表示
-		double[] avgsubject = {0,0,0,0};
 		for (int i = 0; i < subject.length; i++) {
+			double avgsubject = 0;
 			for (int j = 0; j < num; j++) {
-				avgsubject[i] = avgsubject[i] + score[j][i];  
+				avgsubject = avgsubject + score[j][i];  
 			}
-			avgsubject[i] = avgsubject[i]/num;
-			System.out.println(subject[i] + "の平均点は" + avgsubject[i] + "点です。");
+			avgsubject = avgsubject/num;
+			System.out.println(subject[i] + "の平均点は" + avgsubject + "点です。");
 		}
 	}
 }
