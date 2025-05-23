@@ -27,7 +27,7 @@ public class BoardController {
 	@GetMapping("/")
 	public String index() {
 		// セッションをクリア（掲示板をリセットしたい場合のみ）
-		// session.invalidate(); // 通常はコメントアウト推奨
+		 session.invalidate(); // 通常はコメントアウト推奨
 		return "board";
 	}
 
