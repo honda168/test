@@ -20,7 +20,7 @@ public class Person {
 
 	public void print() {
 		System.out.println("名前は" + this.fullName() + "です");
-		System.out.println("年は" + this.age + "です");
+		System.out.println("年は" + this.age + "歳です");
 		System.out.println();
 	}
 

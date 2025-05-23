@@ -38,13 +38,19 @@ public class Qes7 {
 		System.out.println();
 		
 		// 各科目ごとの平均点を計算して表示
+		double avgscore = 0;
 		for (int i = 0; i < subject.length; i++) {
 			double avgsubject = 0;
 			for (int j = 0; j < num; j++) {
 				avgsubject = avgsubject + score[j][i];  
 			}
 			avgsubject = avgsubject/num;
+			avgscore += avgsubject;
 			System.out.println(subject[i] + "の平均点は" + avgsubject + "点です。");
 		}
+		
+		//全体の平均を表示
+		//教科ごとの合計/subjectの長さを表示
+		System.out.println("全体の平均は"+ (avgscore/subject.length) +"点です。");
 	}
 }

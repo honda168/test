@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- Thymeleafテンプレートのルート要素。xmlns:th属性でThymeleaf名前空間を宣言 -->
+
+<head>
+	<!-- 文字コード指定（UTF-8） -->
+	<meta charset="UTF-8">
+	<!-- ページタイトル -->
+	<title>掲示板</title>
+</head>
+
+<body>
+	<!-- ページの見出し -->
+	<h1>掲示板</h1>
+	
+	<!-- エラーメッセージ表示（サーバー側バリデーション使用時） -->
+	<div th:if="${error}" style="color:red;" th:text="${error}"></div>
+
+	<!-- 投稿フォーム。action属性で送信先URLを指定 -->
+	<form action="/apply" method="post">
+		<p>
+			<!-- 名前入力欄（必須チェック追加） -->
+			<input type="text" name="name" placeholder="名前">
+		</p>
+		<p>
+			<!-- 書き込み内容入力欄（必須チェック追加） -->
+			<textarea name="contents" placeholder="書き込み"></textarea>
+		</p>
+		<p>
+			<!-- 投稿ボタン -->
+			<input type="submit" value="投稿する">
+		</p>
+	</form>
+	<!-- 区切り線 -->
+	<hr>
+
+	<!-- 投稿一覧テーブル -->
+	<table style="width:100%;" border="1">
+		<tr>
+			<!-- テーブルヘッダ -->
+			<th>日時</th>
+			<th>名前</th>
+			<th>書き込み</th>
+		</tr>
+		<!-- Thymeleafで投稿データをループ表示 -->
+		<tr th:each="rec : ${allContents}">
+			<!-- 日時表示（Record#getDatetime()の値を表示） -->
+			<td th:text="${rec.datetime}"></td>
+			<!-- 名前表示（Record#getName()の値を表示） -->
+			<td th:text="${rec.name}"></td>
+			<!-- 書き込み内容表示
+                 getContents()で改行を<br>に変換しているためth:utextでHTMLとして出力
+                 ※XSS対策が必要。信頼できない入力には注意！ -->
+			<td th:utext="${rec.contents}"></td>
+		</tr>
+	</table>
+
+	<!-- すべてクリア用リンク -->
+	<a href="/">すべてクリア</a>
+</body>
+
+</html>
