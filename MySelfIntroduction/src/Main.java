@@ -19,7 +19,9 @@ public class Main {
 		//乗り物購入
 		person1.buy(car);
 		person2.buy(bicycle);
-		
+		System.out.println(person1.getBmi());
+
+		System.out.println(person2.getBmi());
 //		System.out.println(car.getOwner());
 //		System.out.println(bicycle.getOwner());
 	}

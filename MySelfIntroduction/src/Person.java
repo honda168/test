@@ -24,10 +24,11 @@ public class Person {
 		System.out.println();
 	}
 
-	public double getBmi(double height, double weight) {
-		double bmi = weight / (height * 2);
+	public double getBmi() {
+		double bmi = weight / (height * height);
 		bmi = Math.round(bmi * 100.0) / 100.0;
-		return bmi;
+		bmi = Math.floor(bmi) ;
+		return bmi; 
 	}
 
 	public static void printCount() {

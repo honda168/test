@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class OmikujiController {
 
-	@GetMapping("/")
+	@GetMapping("omikuji")
 	public String index() {
 		return "omikujiController";
 	}
