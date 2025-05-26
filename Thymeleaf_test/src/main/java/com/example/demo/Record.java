@@ -52,4 +52,10 @@ public class Record {
         // 改行をHTMLの改行タグに変換
         return contents.replaceAll("\n", "<br>");
     }
+    
+    // コンソールに表示する用
+    public String toString() {
+        return "Record{name='" + name + "', contents='" + contents + "'}"; // 例
+    }
+
 }

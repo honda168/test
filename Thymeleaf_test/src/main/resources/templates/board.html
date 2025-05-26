@@ -12,23 +12,30 @@
 <body>
 	<!-- ページの見出し -->
 	<h1>掲示板</h1>
-	
-	<!-- エラーメッセージ表示（サーバー側バリデーション使用時） -->
-	<div th:if="${error}" style="color:red;" th:text="${error}"></div>
+
+
 
 	<!-- 投稿フォーム。action属性で送信先URLを指定 -->
 	<form action="/apply" method="post">
+
+		<!-- エラーメッセージ表示（サーバー側バリデーション使用時） -->
+		<div th:if="${nameError}" style="color:red;" th:text="${nameError}"></div>
+
 		<p>
 			<!-- 名前入力欄（必須チェック追加） -->
 			<input type="text" name="name" placeholder="名前">
 		</p>
+
+		<!-- エラーメッセージ表示（サーバー側バリデーション使用時） -->
+		<div th:if="${contentsError}" style="color:red;" th:text="${contentsError}"></div>
+
 		<p>
 			<!-- 書き込み内容入力欄（必須チェック追加） -->
 			<textarea name="contents" placeholder="書き込み"></textarea>
 		</p>
 		<p>
 			<!-- 投稿ボタン -->
-			<input type="submit" value="投稿する">
+			<input type="submit" value="投稿する"　class="huge-button">
 		</p>
 	</form>
 	<!-- 区切り線 -->
