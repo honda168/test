@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Top</title>
+</head>
+
+<body>
+	<h1>ようこそ</h1>
+	<h2>これはトップページ</h2>
+	<p th:text="'apple'"></p>
+
+	<p th:text="'apple' + 'banana' + 'orange'"></p>
+
+	<p th:text="11 + 5"></p>
+
+	<p th:text="${isFlag} ? ${'display'} : ${hidden}"></p>
+
+	<div th:if="${isFlag}">
+		<input type="text" placeholder="条件式" />
+	</div>
+
+	<div th:if="${a == 5}">
+		<input type="text" placeholder="比較と等価" />
+	</div>
+
+	<div th:if="${a == 5 && b == 10}">
+		<input type="password" placeholder="論理演算子" />
+	</div>
+
+	<input type="text" th:placeholder="${placeholderMessage}" />
+
+	<p th:text="${userName}">名前がここに表示されます</p>
+
+	<tr th:each="customer : ${customers}">
+		<td th:text="${customer.name}"></td>
+		<td th:text="${customer.address}"></td>
+		<td th:text="${customer.id}"></td>
+	</tr>
+
+
+</body>
+
+</html>

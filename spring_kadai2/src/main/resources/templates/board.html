@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title> 掲示板</title>
+</head>
+
+<body>
+	<h1>掲示板</h1>
+	<span th:text="${error}" style="color: red;"></span>
+	<form action="/apply" method="post">
+		<p>
+			<input type="text" name="name" placeholder="名前">
+		</p>
+		<p>
+			<span>今の気分</span>
+			<select name="feeling">
+				<option value="〇">〇</option>
+				<option value="△">△</option>
+				<option value="×">×</option>
+			</select>
+		</p>
+		<p>
+			<textarea name="contents"></textarea>
+		</p>
+		<input type="submit" value="投稿する">
+	</form>
+
+	<hr>
+
+	<table style="width:100%;" border="1">
+		<tr>
+			<th>日時</th>
+			<th>名前</th>
+			<th>気分</th>
+			<th>書き込み</th>
+		</tr>
+		<!-- Thymeleafで投稿データをループ表示 -->
+		<tr th:each="rec : ${allContents}">
+			<td th:text="${rec.datetime}"></td>
+			<td th:text="${rec.name}"></td>
+			<td th:text="${rec.feeling}"></td>
+			<td th:utext="${rec.contents}"></td>
+		</tr>
+	</table>
+	<a href="/reset">全部消す</a>
+</body>
+
+</html>
